@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес-инструктор | Анна Смирнова</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="theme-toggle">
+                <button id="themeToggle">🌓</button>
+            </div>
+        </header>
+        
+        <main class="main">
+            <div class="profile">
+                <img id="avatar" class="avatar" src="" alt="Аватар">
+                <h1 id="name" class="name"></h1>
+                <p id="description" class="description"></p>
+            </div>
+
+            <div class="services" id="services">
+                <h2>Услуги и цены</h2>
+            </div>
+
+            <div class="links" id="links"></div>
+            
+            <div class="contacts" id="contacts"></div>
+        </main>
+
+        <footer class="footer">
+            <button id="openInTelegram" class="telegram-button">
+                Записаться на занятие
+            </button>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 

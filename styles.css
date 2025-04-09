@@ -1,0 +1,283 @@
+:root {
+    /* Основные цвета */
+    --bg-color: #ffffff; /* Основной цвет фона */
+    --text-color: #333333; /* Цвет текста */
+    --primary-color: #FF6B6B; /* Основной акцентный цвет (кнопки, заголовки) */
+    --secondary-color: #f0f2f5; /* Вторичный цвет (карточки, блоки) */
+    --border-color: #e5e5e5; /* Цвет границ */
+    --accent-color: #4ECDC4; /* Дополнительный акцентный цвет (цены, акценты) */
+
+    /* Градиенты */
+    --gradient-1: linear-gradient(45deg, #FF6B6B, #FF8E8E); /* Основной градиент (кнопки, заголовки) */
+    --gradient-2: linear-gradient(45deg, #4ECDC4, #6EE7B7); /* Вторичный градиент (подчеркивания, акценты) */
+
+    /* Тени */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Базовая тень для элементов */
+    --shadow-primary: 0 10px 20px rgba(255, 107, 107, 0.2); /* Тень для основных элементов */
+    --shadow-accent: 0 10px 20px rgba(78, 205, 196, 0.2); /* Тень для акцентных элементов */
+}
+
+[data-theme="dark"] {
+    /* Темная тема - переопределение основных цветов */
+    --bg-color: #1a1a1a; /* Темный фон */
+    --text-color: #ffffff; /* Светлый текст */
+    --secondary-color: #2c2c2c; /* Темные карточки */
+    --border-color: #404040; /* Темные границы */
+    
+    /* Усиление теней для темной темы */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-primary: 0 10px 20px rgba(255, 107, 107, 0.3);
+    --shadow-accent: 0 10px 20px rgba(78, 205, 196, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    background: linear-gradient(-45deg, var(--bg-color), var(--secondary-color));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s;
+}
+
+.theme-toggle button:hover {
+    transform: rotate(180deg);
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.profile {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    animation: float 6s ease-in-out infinite;
+    box-shadow: var(--shadow-primary);
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.4);
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 600;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite;
+}
+
+.description {
+    color: var(--text-color);
+    opacity: 0.8;
+    max-width: 80%;
+    position: relative;
+}
+
+.description::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--gradient-2);
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite;
+}
+
+.service-item {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-color);
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-primary);
+}
+
+.service-item h3 {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.service-item p {
+    opacity: 0.8;
+}
+
+.price {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 16px;
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+}
+
+.links, .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link-item, .contact-item {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-color);
+}
+
+.link-item:hover, .contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-primary);
+}
+
+.telegram-button {
+    background: var(--gradient-1);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.telegram-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.telegram-button:hover::before {
+    left: 100%;
+}
+
+.telegram-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+}
+
+.footer {
+    padding: 20px 0;
+}
+
+@media (max-width: 480px) {
+    #app {
+        padding: 15px;
+    }
+    
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .name {
+        font-size: 20px;
+    }
+
+    .service-item {
+        padding: 15px;
+    }
+} 
