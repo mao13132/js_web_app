@@ -61,7 +61,40 @@ const clientData = {
 
 // Инициализация Telegram Web App
 const tg = window.Telegram.WebApp;
-tg.expand();
+
+// Функция для инициализации Telegram Web App
+function initTelegramWebApp() {
+    // Раскрываем приложение на весь экран
+    tg.expand();
+    
+    // Устанавливаем цвет фона в соответствии с темой Telegram
+    document.body.style.backgroundColor = tg.backgroundColor;
+    
+    // Получаем данные пользователя
+    const user = tg.initDataUnsafe?.user;
+    if (user) {
+        // Создаем приветствие с именем пользователя
+        const greeting = document.createElement('div');
+        greeting.className = 'greeting';
+        greeting.innerHTML = `
+            <p>Привет, ${user.first_name || 'друг'}! 👋</p>
+            ${user.username ? `<p class="username">@${user.username}</p>` : ''}
+        `;
+        
+        // Вставляем приветствие перед профилем
+        const profile = document.querySelector('.profile');
+        profile.parentNode.insertBefore(greeting, profile);
+        
+        // Можно использовать другие данные пользователя
+        console.log('Данные пользователя:', {
+            id: user.id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            username: user.username,
+            language_code: user.language_code
+        });
+    }
+}
 
 // Функция для переключения темы
 function toggleTheme() {
@@ -124,16 +157,22 @@ function renderData() {
 // Функция для открытия в Telegram
 function openInTelegram() {
     if (tg.isExpanded) {
+        // Если уже в Telegram Web App, закрываем
         tg.close();
     } else {
-        window.location.href = 'https://t.me/your_bot_username';
+        // Если открыто в браузере, предлагаем открыть в Telegram
+        const botUsername = 'your_bot_username'; // Замените на имя вашего бота
+        window.location.href = `https://t.me/${botUsername}`;
     }
 }
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
-    // Установка начальной темы
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Инициализация Telegram Web App
+    initTelegramWebApp();
+    
+    // Установка начальной темы (теперь темная по умолчанию)
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     document.body.setAttribute('data-theme', savedTheme);
 
     // Обработчики событий
