@@ -283,6 +283,61 @@ body {
     font-size: 14px;
 }
 
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    background: var(--gradient-1);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: var(--shadow-primary);
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.cta-button {
+    text-align: center;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-primary);
+}
+
+.cta-button.primary {
+    background: var(--gradient-1);
+    color: white;
+    font-size: 18px;
+    animation: pulse 2s infinite;
+}
+
+.cta-button.secondary {
+    background: var(--gradient-2);
+    color: white;
+    font-size: 16px;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
 @media (max-width: 480px) {
     #app {
         padding: 15px;
