@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка адвоката</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <a href="https://dima-razrab.ru/me/catalog" class="back-button">
+        <i class="fas fa-arrow-left"></i> Назад
+    </a>
+
+    <div class="business-card">
+        <div class="card-content">
+            <div class="header">
+                <h1>Александр Иванов</h1>
+                <p class="title">Адвокат</p>
+                <a href="https://dima-razrab.ru/me/" class="free-card-button">
+                    <i class="fas fa-gift"></i> Получить визитку БЕСПЛАТНО
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                    <span class="text">+7 (999) 123-45-67</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <span class="text">advokat@example.com</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span class="text">г. Москва, ул. Юридическая, 15</span>
+                </div>
+            </div>
+
+            <div class="specialization">
+                <h2>Специализация</h2>
+                <ul>
+                    <li>Гражданское право</li>
+                    <li>Уголовное право</li>
+                    <li>Семейное право</li>
+                    <li>Недвижимость</li>
+                    <li>Корпоративное право</li>
+                    <li>Налоговое право</li>
+                </ul>
+            </div>
+
+            <div class="buttons">
+                <a href="tel:+79991234567" class="button">
+                    <i class="fas fa-phone-alt"></i> Позвонить
+                </a>
+                <a href="mailto:advokat@example.com" class="button">
+                    <i class="fas fa-envelope"></i> Написать
+                </a>
+            </div>
+
+            <div class="footer">
+                <p>Лицензия №123456789</p>
+                <p>Член Адвокатской палаты г. Москвы</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="templates" style="display: none;"></div>
+
+    <script>
+        // Добавляем анимацию при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.querySelector('.business-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+
+            // Добавляем эффект свечения при наведении на кнопки
+            const buttons = document.querySelectorAll('.button, .free-card-button, .back-button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    button.style.boxShadow = '0 0 30px rgba(233, 69, 96, 0.6)';
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.style.boxShadow = '0 0 20px rgba(233, 69, 96, 0.2)';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

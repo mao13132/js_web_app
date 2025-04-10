@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>UI/UX Designer | Алексей Морской</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="ocean-bg"></div>
+    <div id="app">
+        <header class="header">
+            <a href="https://dima-razrab.ru/me/catalog/" class="back-button">← Назад</a>
+            <div class="theme-toggle">
+                <button id="themeToggle">🌓</button>
+            </div>
+        </header>
+        
+        <main class="main">
+            <div class="profile">
+                <div class="avatar-container">
+                    <img id="avatar" class="avatar" src="" alt="Аватар">
+                    <div class="avatar-overlay"></div>
+                </div>
+                <h1 id="name" class="name"></h1>
+                <p id="description" class="description"></p>
+                <div class="tags">
+                    <span class="tag">UI Design</span>
+                    <span class="tag">UX Research</span>
+                    <span class="tag">Branding</span>
+                    <span class="tag">Motion</span>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="https://dima-razrab.ru/me/" class="cta-button primary">
+                    <span class="cta-icon">🎨</span>
+                    Хочу такую же визитку!
+                </a>
+                <a href="https://dima-razrab.ru/me/" class="cta-button secondary">
+                    <span class="cta-icon">🎁</span>
+                    Получить в подарок
+                </a>
+            </div>
+
+            <div class="portfolio">
+                <h2>Портфолио</h2>
+                <div class="portfolio-grid" id="portfolio">
+                    <!-- Будет заполнено через JavaScript -->
+                </div>
+            </div>
+
+            <div class="services" id="services">
+                <h2>Услуги</h2>
+                <!-- Будет заполнено через JavaScript -->
+            </div>
+
+            <div class="links" id="links">
+                <h2>Соцсети</h2>
+                <!-- Будет заполнено через JavaScript -->
+            </div>
+            
+            <div class="contacts" id="contacts">
+                <h2>Контакты</h2>
+                <!-- Будет заполнено через JavaScript -->
+            </div>
+        </main>
+
+        <footer class="footer">
+            <button id="openInTelegram" class="telegram-button">
+                <span class="button-icon">✉️</span>
+                Обсудить проект
+            </button>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 
